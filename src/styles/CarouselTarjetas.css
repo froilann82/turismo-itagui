@@ -1,0 +1,128 @@
+.carousel-tarjetas {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 20px 20px 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tarjeta-carousel {
+  min-width: 220px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  overflow: hidden;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  transition: transform 0.15s;
+}
+
+.tarjeta-carousel:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+
+.img-tarjeta {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.info-tarjeta {
+  padding: 12px 14px 10px 14px;
+}
+
+.info-tarjeta h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.tarjeta-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.98rem;
+  margin-bottom: 4px;
+  color: black;
+}
+
+.tarjeta-personas {
+  background: #e6f3ff;
+  color: #0099ff;
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-size: 0.85rem;
+}
+
+.tarjeta-desc {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* PC: centra el carrusel y muestra todas en línea */
+@media (min-width: 1025px) {
+  .carousel-tarjetas {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;      
+    gap: 16px;
+    overflow-x: unset;      
+    scroll-snap-type: none; 
+    padding: 20px 0 20px 0;
+    justify-content: center; 
+  }
+  .tarjeta-carousel {
+    min-width: 220px;
+    max-width: 240px;
+    flex: 0 0 220px;        
+  }
+}
+
+/* Tablet: grid 2x2 */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .carousel-tarjetas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 18px;
+    max-width: 500px;
+    margin: 0 auto;
+    overflow-x: unset;
+    padding: 20px 10px;
+  }
+  .tarjeta-carousel {
+    min-width: 0;
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+/* Móvil: carrusel horizontal, tarjetas más pequeñas */
+@media (max-width: 599px) {
+  .carousel-tarjetas {
+    display: flex;
+    gap: 10px;
+    padding: 10px 5px 15px 5px;
+    max-width: 100vw;
+  }
+  .tarjeta-carousel {
+    min-width: 160px;
+    max-width: 250px;
+  }
+  .img-tarjeta {
+    height: 200px;
+  }
+  .info-tarjeta h3 {
+    font-size: 1rem;
+  }
+  .tarjeta-desc {
+    font-size: 0.85rem;
+  }
+}

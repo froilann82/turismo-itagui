@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# Pre-commit hook - Turismo Itagüí
+# Validaciones básicas antes del commit
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	against=$(git hash-object -t tree /dev/null)
+fi
+
+# Redirect output to stderr
+exec 1>&2
+
+# Validar archivos sensibles
+sensitive_files=$(git diff-index --cached --name-only $against | grep -E '\.(env|log)$|node_modules/' || true)
+if [ -n "$sensitive_files" ]; then
+    echo "ERROR: No commitear archivos sensibles:"
+    echo "$sensitive_files"
+    exit 1
+fi
+
+# Validar whitespace
+if ! git diff-index --check --cached $against --; then
+    echo "ERROR: Errores de whitespace detectados"
+    exit 1
+fi
+
+exit 0

@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# Prepare commit message hook - Plantilla simple para Conventional Commits
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+
+# No modificar commits de merge o con mensaje específico
+case "$COMMIT_SOURCE" in
+  merge|template|message|commit)
+    exit 0
+    ;;
+esac
+
+# Si ya hay un mensaje, no modificar
+current_message=$(cat "$COMMIT_MSG_FILE")
+if [ -n "$(echo "$current_message" | grep -v '^#')" ]; then
+    exit 0
+fi
+
+# Crear template simple
+cat > "$COMMIT_MSG_FILE" << EOF
+# Formato: <tipo>[scope]: <descripción>
+#
+# Tipos válidos:
+#   feat: nueva funcionalidad
+#   fix: corrección de bug
+#   docs: cambios en documentación
+#   chore: tareas de mantenimiento
+#
+# Ejemplos:
+#   feat: agregar mapa interactivo
+#   feat(mapa): agregar filtros
+#   fix: corregir error en favoritos
+#   docs: actualizar README
+#   chore: actualizar dependencias
+EOF
+
+exit 0

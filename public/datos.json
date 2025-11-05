@@ -1,0 +1,39 @@
+{
+  "gastronomia": [
+    {
+      "nombre": "Restaurante Sabor Paisa",
+      "lat": 6.173,
+      "lng": -75.610,
+      "descripcion": "La mejor Comida tipica de la región, con un ambiente acogedor y los mejores productos",
+      "imagen": "./Restaurante.png",
+      "rating" : 4.5
+    }
+  ],
+  "aventura": [
+    {
+      "nombre": "Parque de las Chimeneas",
+      "lat": 6.174,
+      "lng": -75.613,
+      "descripcion": "Lugar ideal para caminatas."
+    }
+  ],
+  "cultural": [
+    {
+      "nombre": "Casa de la Cultura",
+      "lat": 6.175,
+      "lng": -75.612,
+      "descripcion": "Centro cultural de la ciudad."
+    }
+  ],
+  "shopping": [
+    {
+      "nombre": "Centro Comercial Itagüí Plaza",
+      "lat": 6.170,
+      "lng": -75.614,
+      "descripcion": "Zona comercial con muchas tiendas."
+    }
+  ]
+}
+
+
+
