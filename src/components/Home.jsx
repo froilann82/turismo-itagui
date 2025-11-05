@@ -15,9 +15,7 @@ export default function Home() {
     <div className="home-container">
       <HeaderApp />
         <div className="home-content">
-          <h2 className="titulo-explora">
-            Explora <span className="negrita">lo mejor de <span className="color-itagui itagui-curva">Itagüí!</span></span>
-          </h2>
+          
           <div className="carrusel-centro">
             <h3 className="categorias">Nuestras Categorías</h3>
             <CarouselTarjetas onCardClick={irACategoria} />
